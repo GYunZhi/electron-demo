@@ -1,0 +1,11 @@
+/Users/gongyz/Desktop/electron-demo/addon/rust/target/debug/deps/semver_parser-fd30189dba384d84.rmeta: /Users/gongyz/.cargo/registry/src/index.crates.io-6f17d22bba15001f/semver-parser-0.7.0/src/lib.rs /Users/gongyz/.cargo/registry/src/index.crates.io-6f17d22bba15001f/semver-parser-0.7.0/src/version.rs /Users/gongyz/.cargo/registry/src/index.crates.io-6f17d22bba15001f/semver-parser-0.7.0/src/range.rs /Users/gongyz/.cargo/registry/src/index.crates.io-6f17d22bba15001f/semver-parser-0.7.0/src/common.rs /Users/gongyz/.cargo/registry/src/index.crates.io-6f17d22bba15001f/semver-parser-0.7.0/src/recognize.rs
+
+/Users/gongyz/Desktop/electron-demo/addon/rust/target/debug/deps/libsemver_parser-fd30189dba384d84.rlib: /Users/gongyz/.cargo/registry/src/index.crates.io-6f17d22bba15001f/semver-parser-0.7.0/src/lib.rs /Users/gongyz/.cargo/registry/src/index.crates.io-6f17d22bba15001f/semver-parser-0.7.0/src/version.rs /Users/gongyz/.cargo/registry/src/index.crates.io-6f17d22bba15001f/semver-parser-0.7.0/src/range.rs /Users/gongyz/.cargo/registry/src/index.crates.io-6f17d22bba15001f/semver-parser-0.7.0/src/common.rs /Users/gongyz/.cargo/registry/src/index.crates.io-6f17d22bba15001f/semver-parser-0.7.0/src/recognize.rs
+
+/Users/gongyz/Desktop/electron-demo/addon/rust/target/debug/deps/semver_parser-fd30189dba384d84.d: /Users/gongyz/.cargo/registry/src/index.crates.io-6f17d22bba15001f/semver-parser-0.7.0/src/lib.rs /Users/gongyz/.cargo/registry/src/index.crates.io-6f17d22bba15001f/semver-parser-0.7.0/src/version.rs /Users/gongyz/.cargo/registry/src/index.crates.io-6f17d22bba15001f/semver-parser-0.7.0/src/range.rs /Users/gongyz/.cargo/registry/src/index.crates.io-6f17d22bba15001f/semver-parser-0.7.0/src/common.rs /Users/gongyz/.cargo/registry/src/index.crates.io-6f17d22bba15001f/semver-parser-0.7.0/src/recognize.rs
+
+/Users/gongyz/.cargo/registry/src/index.crates.io-6f17d22bba15001f/semver-parser-0.7.0/src/lib.rs:
+/Users/gongyz/.cargo/registry/src/index.crates.io-6f17d22bba15001f/semver-parser-0.7.0/src/version.rs:
+/Users/gongyz/.cargo/registry/src/index.crates.io-6f17d22bba15001f/semver-parser-0.7.0/src/range.rs:
+/Users/gongyz/.cargo/registry/src/index.crates.io-6f17d22bba15001f/semver-parser-0.7.0/src/common.rs:
+/Users/gongyz/.cargo/registry/src/index.crates.io-6f17d22bba15001f/semver-parser-0.7.0/src/recognize.rs:

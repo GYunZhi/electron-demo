@@ -5,11 +5,11 @@
 </template>
 
 <script>
-  export default {
-    name: 'lls-zdaide-frontend'
-  }
+export default {
+  name: 'electron-demo'
+}
 </script>
 
-<style>
-  /* CSS */
+<style lang="scss">
+@import '@/assets/css/common.scss';
 </style>
