@@ -126,6 +126,15 @@ app.on('activate', () => {
   })
 })
 
+// 网页应用调起桌面程序
+// This will catch clicks on links such as <a href="callup-demo://abc=1">open in demo</a>
+app.on('open-url', function(event, data) {
+  event.preventDefault()
+  console.log('open by web:', data)
+})
+// app.removeAsDefaultProtocolClient('callup-demo')
+// app.setAsDefaultProtocolClient('callup-demo')
+
 /**
  * Auto Updater
  *

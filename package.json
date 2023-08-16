@@ -43,7 +43,15 @@
       "icon": "build/icons/icon.icns"
     },
     "win": {
-      "icon": "build/icons/icon.ico"
+      "icon": "build/icons/icon.ico",
+      "requestedExecutionLevel": "highestAvailable",
+      "target": "nsis",
+      "artifactName": "${productName}V${version}(00).${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "shortcutName": "示例桌面应用"
     },
     "linux": {
       "icon": "build/icons"
