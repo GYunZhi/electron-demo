@@ -7,8 +7,9 @@
 
 /* eslint-disable */
 
-// Install `electron-debug` with `devtron`
-require('electron-debug')({ showDevTools: true })
+// 添加调试功能，如果安装了 devtron、electron-react-devtools 等扩展, 会默认激活 
+// https://www.npmjs.com/package/electron-debug
+require('electron-debug')({ showDevTools: false })
 
 // Install `vue-devtools`
 // require('electron').app.on('ready', () => {

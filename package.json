@@ -9,7 +9,7 @@
     "build:dir": "node .electron-vue/build.js && electron-builder --dir",
     "build:clean": "cross-env BUILD_TARGET=clean node .electron-vue/build.js",
     "build:web": "cross-env BUILD_TARGET=web node .electron-vue/build.js",
-    "dev": "node .electron-vue/dev-runner.js",
+    "dev": "node .electron-vue/dev-runner.js ./dist/electron/main.js",
     "pack": "npm run pack:main && npm run pack:renderer",
     "pack:main": "cross-env NODE_ENV=production webpack --progress --colors --config .electron-vue/webpack.main.config.js",
     "pack:renderer": "cross-env NODE_ENV=production webpack --progress --colors --config .electron-vue/webpack.renderer.config.js",
@@ -46,7 +46,7 @@
       "icon": "build/icons/icon.ico",
       "requestedExecutionLevel": "highestAvailable",
       "target": "nsis",
-      "artifactName": "${productName}V${version}(00).${ext}"
+      "artifactName": "${productName}_${version}.${ext}"
     },
     "nsis": {
       "oneClick": false,
@@ -84,7 +84,7 @@
     "css-loader": "^0.28.11",
     "del": "^3.0.0",
     "devtron": "^1.4.0",
-    "electron": "13.3.0",
+    "electron": "13.6.9",
     "electron-builder": "22.9.1",
     "electron-debug": "^1.5.0",
     "electron-devtools-installer": "^2.2.4",
@@ -96,9 +96,9 @@
     "nan": "^2.17.0",
     "node-addon-api": "^7.0.0",
     "node-loader": "^0.6.0",
-    "node-sass": "^4.9.2",
+    "node-sass": "6.0.1",
     "ref-napi": "^3.0.3",
-    "sass-loader": "^7.0.3",
+    "sass-loader": "7.0.3",
     "style-loader": "^0.21.0",
     "url-loader": "^1.0.1",
     "vue-html-loader": "^1.2.4",
