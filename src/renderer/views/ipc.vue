@@ -4,6 +4,8 @@
     <el-button type="primary" @click="sendMessage('sync')">发送同步消息</el-button>
     <el-button type="primary" @click="sendMessage('async')">发送异步消息 send</el-button>
     <el-button type="primary" @click="sendMessage('invoke')">发送异步消息 invoke</el-button>
+    <el-button type="primary" @click="sendNotification('invoke')">发送的 Notification 请求</el-button>
+    <el-button type="primary" @click="setBadgeNumber">更新 Dock 图标数字</el-button>
     <p class="reply">主进程回复的消息: {{ reply }}</p>
 
     <el-divider>接收主进程的消息</el-divider>
@@ -28,13 +30,13 @@ export default {
     return {
       msg: '',
       reply: '',
-      sharedData: {}
-    }
+      sharedData: {},
+    };
   },
   mounted() {
     ipcRenderer.on('main-msg', (event, msg) => {
-      this.msg = msg
-    })
+      this.msg = msg;
+    });
 
     // 访问主进程的全局变量
     const { name, node, chrome, electron } = getGlobal('sharedData')
@@ -42,26 +44,32 @@ export default {
   },
   methods: {
     postMessage() {
-      ipcRenderer.invoke('send-a-message')
+      ipcRenderer.invoke('send-a-message');
+    },
+    sendNotification() {
+      ipcRenderer.send('show-notification');
+    },
+    setBadgeNumber() {
+      ipcRenderer.send('update-dock-badge', 99);
     },
     sendMessage(type) {
       if (type === 'sync') {
-        const msg = ipcRenderer.sendSync('sync-render', '我是来自渲染进程的同步消息')
-        this.reply = msg
+        const msg = ipcRenderer.sendSync('sync-render', '我是来自渲染进程的同步消息');
+        this.reply = msg;
       } else if (type === 'async') {
-        ipcRenderer.send('async-render', '我是来自渲染进程的异步消息')
+        ipcRenderer.send('async-render', '我是来自渲染进程的异步消息');
         ipcRenderer.on('async-reply', (event, value) => {
-          this.reply = value
-        })
+          this.reply = value;
+        });
       } else if (type === 'invoke') {
-        ipcRenderer.invoke('invoke-render', '我是来自渲染进程的异步 Promise 消息').then(value => (this.reply = value))
+        ipcRenderer.invoke('invoke-render', '我是来自渲染进程的异步 Promise 消息').then(value => (this.reply = value));
       }
     },
     handleRemote() {
-      remote.dialog.showErrorBox('主进程才有的 dialog 模块', '我是使用 remote 调用的')
-    }
-  }
-}
+      remote.dialog.showErrorBox('主进程才有的 dialog 模块', '我是使用 remote 调用的');
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
