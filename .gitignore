@@ -5,6 +5,7 @@ build/*
 !build/icons
 node_modules/
 npm-debug.log
+yarn-error.log
 npm-debug.log.*
 thumbs.db
 !.gitkeep

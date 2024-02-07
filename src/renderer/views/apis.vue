@@ -18,10 +18,10 @@
 
 <script>
 import * as apis from 'electron'
-const { remote } = require('electron')
+const { getGlobal } = require('@electron/remote')
 
 // 访问主进程的全局变量
-const { mainApi } = remote.getGlobal('sharedData')
+const { mainApi } = getGlobal('sharedData')
 
 export default {
   name: 'apis',

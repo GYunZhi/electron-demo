@@ -2,40 +2,40 @@
  * @Author: gongyunzhi
  * @Date: 2023-07-06 11:21:44
  * @LastEditors: gongyunzhi
- * @LastEditTime: 2023-07-26 15:55:37
- * @Description: 
+ * @LastEditTime: 2024-02-07 15:06:46
+ * @Description:
  */
 const menuRoutes = [
   {
     routeName: 'home',
     title: '首页',
-    path: '/'
+    path: '/',
   },
   {
     routeName: 'apis',
     title: 'API',
-    path: '/apis'
+    path: '/apis',
   },
   {
-    routeName: 'window',
-    title: '窗口',
-    path: '/window'
+    routeName: 'bv',
+    title: '视图容器',
+    path: '/bv',
   },
   {
     routeName: 'ipc',
     title: '进程通信',
-    path: '/ipc'
+    path: '/ipc',
   },
   {
     routeName: 'desktopCapturer',
     title: '捕获桌面视频流',
-    path: '/desktopCapturer'
+    path: '/desktopCapturer',
   },
   {
     routeName: 'session',
     title: 'session 管理',
-    path: '/session'
-  }
-]
+    path: '/session',
+  },
+];
 
-export default menuRoutes
+export default menuRoutes;

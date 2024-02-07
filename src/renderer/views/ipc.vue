@@ -19,7 +19,8 @@
 </template>
 
 <script>
-const { remote, ipcRenderer } = require('electron')
+const { ipcRenderer } = require('electron')
+const { getGlobal } = require('@electron/remote')
 
 export default {
   name: 'ipc',
@@ -36,7 +37,7 @@ export default {
     })
 
     // 访问主进程的全局变量
-    const { name, node, chrome, electron } = remote.getGlobal('sharedData')
+    const { name, node, chrome, electron } = getGlobal('sharedData')
     this.sharedData = { name, node, chrome, electron }
   },
   methods: {
