@@ -17,6 +17,9 @@ release
 package-lock.json
 yarn.lock
 
+auto-imports.d.ts
+components.d.ts
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

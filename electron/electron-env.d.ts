@@ -19,6 +19,10 @@ declare namespace NodeJS {
     /** /dist/ or /public/ */
     VITE_PUBLIC: string
   }
+
+  // interface Global {
+  //   sharedData: any
+  // }
 }
 
 // Used in Renderer process, expose in `preload.ts`

@@ -1,0 +1,28 @@
+/*fade*/
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.28s;
+}
+
+.fade-enter,
+.fade-leave-active {
+  opacity: 0;
+}
+
+.menu-enter-active {
+  transition: scaleY 0.28s;
+  transform-origin: 0 0;
+  animation: menu-in .28s;
+}
+.menu-leave-active {
+  transform-origin: 0 0;
+  animation: menu-in .28s reverse;
+}
+@keyframes menu-in {
+  0% {
+    transform: scaleY(0);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}

@@ -1,6 +1,10 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "target": "ES2015",
     "useDefineForClassFields": true,
     "module": "ESNext",
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
@@ -16,10 +20,22 @@
 
     /* Linting */
     "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "allowJs": true,
+    "noUnusedLocals": false,
+		"noUnusedParameters": false,
+		"noFallthroughCasesInSwitch": true,
+    "strictPropertyInitialization": false,
+    "emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
+    "noImplicitAny": false
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "electron"],
+  "include": [
+    "src/**/*.ts", 
+    "src/**/*.tsx", 
+    "src/**/*.vue", 
+    "electron",
+    "./components.d.ts",
+    "./auto-imports.d.ts"
+  ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
