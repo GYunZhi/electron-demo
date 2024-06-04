@@ -4,13 +4,13 @@ import path from 'node:path';
 import * as apis from 'electron';
 import CookieManager from './utils/cookie';
 import NetRequest from './utils/net';
-import { setCustomProtocol,  setDefaultProtocol, handleDefaultProtocol } from './protocal'; // 测试自定义协议
+import { setCustomProtocol,  setDefaultProtocol, handleDefaultProtocol } from './protocal';
 import { initCrash } from './crash';
 import './doh';
 
 remote.initialize();
 
-process.env.APP_ROOT = path.join(__dirname, '..');
+process.env.APP_ROOT = path.join(__dirname, '../../');
 
 // 🚧 Use ['ENV_NAME'] avoid vite:define plugin - Vite@2.x
 export const VITE_DEV_SERVER_URL = process.env['VITE_DEV_SERVER_URL'];
@@ -41,7 +41,7 @@ function createWindow() {
     useContentSize: true,
     // frame: false,
     webPreferences: {
-      preload: path.join(__dirname, 'preload/index.js'),
+      preload: path.join(__dirname, '../preload/index.js'),
       nodeIntegration: true,
       sandbox: false,
       contextIsolation: false,

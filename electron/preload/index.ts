@@ -23,7 +23,6 @@
 //   // ...
 // })
 
-
 import { ipcRenderer } from 'electron'
 
 // 关闭上下文隔离
