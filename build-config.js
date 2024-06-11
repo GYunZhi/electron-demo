@@ -2,7 +2,7 @@
 
 const config = {
   appId: 'YourAppID',
-  asar: true,
+  asar: false,
   productName: 'YourAppName',
   directories: {
     output: 'release/${version}',

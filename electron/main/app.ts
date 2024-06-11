@@ -1,13 +1,10 @@
 import { app, BrowserWindow, ipcMain } from 'electron';
 import remote from '@electron/remote/main';
 import path from 'node:path';
-import * as apis from 'electron';
-import CookieManager from './utils/cookie';
-import NetRequest from './utils/net';
-import { setCustomProtocol,  setDefaultProtocol, handleDefaultProtocol } from './protocal';
 import { initCrash } from './crash';
 import './doh';
 
+// 初始化 remote 模块
 remote.initialize();
 
 process.env.APP_ROOT = path.join(__dirname, '../../');
@@ -19,16 +16,13 @@ export const RENDERER_DIST = path.join(process.env.APP_ROOT, 'dist');
 
 process.env.VITE_PUBLIC = VITE_DEV_SERVER_URL ? path.join(process.env.APP_ROOT, 'public') : RENDERER_DIST;
 
+// 崩溃监控
+initCrash();
+
 // 单一实例
 const gotTheLock = app.requestSingleInstanceLock();
 
 let mainWindow: BrowserWindow | null;
-
-// 崩溃监控
-initCrash();
-
-// 注册自定义协议
-setCustomProtocol();
 
 /**
  * 创建主窗口
@@ -41,10 +35,13 @@ function createWindow() {
     useContentSize: true,
     // frame: false,
     webPreferences: {
-      preload: path.join(__dirname, '../preload/index.js'),
+      spellcheck: false, // 禁用拼写检查器
+      disableBlinkFeatures: "SourceMap", // 以 "," 分隔的禁用特性列表
+      webSecurity: false, // 当设置为 false, 将禁用同源策略
       nodeIntegration: true,
       sandbox: false,
-      contextIsolation: false,
+      contextIsolation: true,
+      preload: path.join(__dirname, '../preload/index.js'),
     },
   });
 
@@ -70,45 +67,6 @@ if (!gotTheLock) {
 } else {
   app.on('ready', () => {
     createWindow();
-
-    /************************** 实例化工具类 ****************************/
-    const cookieManager = new CookieManager();
-    const netRequest = new NetRequest();
-
-    /************************** 接收渲染进程的消息 ****************************/
-    // 同步消息
-    ipcMain.on('sync-render', (event, data) => {
-      event.returnValue = '我收到了同步消息，这是我的回复：啦啦啦';
-    });
-
-    // 异步消息（send）
-    ipcMain.on('async-render', (event, data) => {
-      event.reply('async-reply', '我收到了异步消息，这是我的回复：啦啦啦');
-    });
-
-    // 异步消息（invoke）
-    // 注意：相同的事件名称，on 方法可以注册多次，但是 handle 方法只能注册一次，否则会报错
-    ipcMain.handle('invoke-render', (event, args) => {
-      return '我收到了异步消息(invoke)，这是我的回复：啦啦啦';
-    });
-
-    /************************** 向渲染进程发送消息 ****************************/
-    ipcMain.handle('send-a-message', (event, args) => {
-      mainWindow?.webContents.send('main-msg', `这是一条来自主进程的消息 + ${new Date().getTime()}`);
-    });
-
-    /************************** 设置全局变量 ****************************/
-    global.sharedData = {
-      mainApi: Object.keys(apis),
-
-      name: 'Gavin',
-      node: process.versions.node,
-      chrome: process.versions.chrome,
-      electron: process.versions.electron,
-
-      cookieManager,
-      netRequest,
-    };
   });
 }
 
@@ -128,23 +86,6 @@ app.on('activate', () => {
   if (BrowserWindow.getAllWindows().length === 0) {
     createWindow();
   }
-});
-
-/**
- * 网页应用调起桌面程序
- */
-setDefaultProtocol();
-
-// mac 下唤醒应用会激活 open-url 事件
-app.on('open-url', function (event, url) {
-  event.preventDefault();
-  console.log('open by web:', url);
-});
-
-// window 下唤醒应用会激活 second-instance 事件
-app.on('second-instance', (event, commandLine) => {
-  event.preventDefault();
-  handleDefaultProtocol(commandLine.pop() as string); // commandLine 是一个数组，其中最后一个数组元素为唤醒链接
 });
 
 /**

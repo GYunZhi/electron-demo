@@ -32,10 +32,11 @@
   "include": [
     "src/**/*.ts", 
     "src/**/*.tsx", 
-    "src/**/*.vue", 
-    "electron",
-    "./components.d.ts",
-    "./auto-imports.d.ts"
+    "src/**/*.vue",
+    "src/**/*.d.ts",
+    "types/**/*.d.ts",
+    "electron/**/*.ts",
+    "electron/**/*.d.ts",
   ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

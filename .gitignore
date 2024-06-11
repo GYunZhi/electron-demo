@@ -1,3 +1,16 @@
+# Git 会忽略的文件
+
+.DS_Store
+node_modules
+dist
+dist-ssr
+dist-electron
+release
+.eslintcache
+
+# Local env files
+*.local
+
 # Logs
 logs
 *.log
@@ -6,19 +19,6 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
-
-node_modules
-dist
-dist-ssr
-dist-electron
-release
-*.local
-
-package-lock.json
-yarn.lock
-
-auto-imports.d.ts
-components.d.ts
 
 # Editor directories and files
 .vscode/*
@@ -30,3 +30,11 @@ components.d.ts
 *.njsproj
 *.sln
 *.sw?
+
+# Use the PNPM
+package-lock.json
+yarn.lock
+
+# unplugin-auto-import、unplugin-vue-components
+auto-imports.d.ts
+components.d.ts
