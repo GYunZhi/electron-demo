@@ -9,3 +9,4 @@ yarn-error.log
 npm-debug.log.*
 thumbs.db
 !.gitkeep
+addon/*/build/**

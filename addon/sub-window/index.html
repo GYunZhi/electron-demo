@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>测试子窗口</title>
+</head>
+<style>
+  body {
+    background-color: blueviolet;
+  }
+</style>
+<body>
+ <button onclick="createChildWindow(event)">Attach</button>
+</div>
+
+ <script>
+    function createChildWindow (event) {
+      event.stopPropagation()
+      ipcRenderer.invoke('createChildWindow')
+    }
+    
+    document.documentElement.onclick = function () {
+      alert('click body')
+    }
+ </script>
+</body>
+</html>

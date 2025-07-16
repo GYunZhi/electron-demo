@@ -3968,7 +3968,7 @@ fd-slicer@~1.1.0:
   dependencies:
     pend "~1.2.0"
 
-ffi-napi@4.0.3:
+ffi-napi@^4.0.3:
   version "4.0.3"
   resolved "https://ued.zuoyebang.cc/ffi-napi/-/ffi-napi-4.0.3.tgz#27a8d42a8ea938457154895c59761fbf1a10f441"
   integrity sha1-J6jUKo6pOEVxVIlcWXYfvxoQ9EE=
