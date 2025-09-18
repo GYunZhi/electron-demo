@@ -7,17 +7,31 @@
 </head>
 <style>
   body {
-    background-color: blueviolet;
+    /* background-color: blueviolet; */
+  }
+  .dialog {
+    position: fixed;
+    width: 500px;
+    height: 500px;
+    z-index: 9000;
+    background-color: #666;
   }
 </style>
 <body>
- <button onclick="createChildWindow(event)">Attach</button>
+ <button onclick="createChildWindow(event)">Attach Sub BW</button>
+ <button onclick="createBV(event)">Attach BV</button>
+
+ <div class="dialog">这是一个弹框</div>
 </div>
 
  <script>
     function createChildWindow (event) {
       event.stopPropagation()
       ipcRenderer.invoke('createChildWindow')
+    }
+
+    function createBV () {
+      ipcRenderer.invoke('createBV')
     }
     
     document.documentElement.onclick = function () {

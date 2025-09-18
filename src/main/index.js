@@ -78,6 +78,9 @@ if (!gotTheLock) {
   app.on('ready', () => {
     createWindow();
 
+    // const { openProcessManager } = require('electron-process-manager');
+    // openProcessManager();
+
     /************************** 实例化工具类 ****************************/
     const cookieManager = new CookieManager();
     const netRequest = new NetRequest();

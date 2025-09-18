@@ -58,6 +58,12 @@ void CreateChildWindow(const Napi::CallbackInfo &info) {
   auto childStyle = WS_CHILD| WS_POPUP | WS_VISIBLE;
   HWND hwnd = CreateWindowExW(0, wcx.lpszClassName, NULL, childStyle, 100, 100, 600, 600, nullptr, nullptr, nullptr, nullptr);
   SetParent(hwnd, hwndParent);
+
+  // 子窗口置底
+  // SetWindowPos(hwnd, HWND_BOTTOM, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE);
+
+  // 子窗口置顶
+  SetWindowPos(hwnd, HWND_TOP, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE);
 }
 
 Napi::Object Init(Napi::Env env, Napi::Object exports) {
